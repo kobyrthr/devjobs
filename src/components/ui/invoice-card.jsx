@@ -6,11 +6,11 @@ import { Badge } from './badge';
 import IconArrowRight from '@/../public/icon-arrow-right.svg';
 import Image from 'next/image';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { InvoiceContext } from '@/context/invoice-context';
+import { CompanyContext } from '@/context/company-context';
 
 const InvoiceCard = ({ invoice }) => {
   const router = useRouter();
-  const { setInvoice } = useContext(InvoiceContext);
+  const { setInvoice } = useContext(CompanyContext);
   const { id, paymentDue, clientName, total, status } = invoice;
   const isMobile = useIsMobile('small');
 
