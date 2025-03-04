@@ -8,13 +8,13 @@ import {
 
 import { cn } from '@/lib/utils';
 import { Checkbox } from '@/components/ui/checkbox';
-import { InvoiceContext } from '@/context/invoice-context';
+import { CompanyContext } from '@/context/company-context';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const FilterStatus = () => {
   const isMobile = useIsMobile();
   const { statuses, selectedStatuses, setSelectedStatuses } =
-    useContext(InvoiceContext);
+    useContext(CompanyContext);
 
   const handleStatusChange = (status) => {
     if (selectedStatuses?.includes(status)) {

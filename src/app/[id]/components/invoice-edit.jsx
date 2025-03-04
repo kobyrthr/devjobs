@@ -34,10 +34,10 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import InvoiceCalendar from './invoice-calendar';
 import { InvoiceItemsEdit } from './invoice-items-edit';
 import { Button } from '@/components/ui/button';
-import { InvoiceContext } from '@/context/invoice-context';
+import { CompanyContext } from '@/context/company-context';
 
 const InvoiceEdit = ({ invoice, children }) => {
-  const { updateInvoice } = useContext(InvoiceContext);
+  const { updateInvoice } = useContext(CompanyContext);
   const sheetTriggerRef = useRef();
   const form = useForm({
     resolver: zodResolver(formSchema),

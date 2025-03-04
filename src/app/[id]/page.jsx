@@ -5,11 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import InvoiceHeader from './components/invoice-header';
 import InvoiceBody from './components/invoice-body';
-import { InvoiceContext } from '@/context/invoice-context';
+import { CompanyContext } from '@/context/company-context';
 import { useParams, useRouter } from 'next/navigation';
 
 const InvoicePage = () => {
-  const { invoice, setInvoice, invoices } = useContext(InvoiceContext);
+  const { invoice, setInvoice, invoices } = useContext(CompanyContext);
   const params = useParams();
   const id = params.id;
   const router = useRouter();

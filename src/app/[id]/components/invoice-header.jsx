@@ -5,11 +5,11 @@ import { LoaderSkeleton } from '@/components/ui/loader-skeleton';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import InvoiceEdit from './invoice-edit';
-import { InvoiceContext } from '@/context/invoice-context';
+import { CompanyContext } from '@/context/company-context';
 import InvoiceDelete from './invoice-delete';
 
 const InvoiceHeader = ({ invoice }) => {
-  const { deleteInvoice, markAsPaid } = useContext(InvoiceContext);
+  const { deleteInvoice, markAsPaid } = useContext(CompanyContext);
 
   return (
     <Card>
