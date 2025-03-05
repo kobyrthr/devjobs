@@ -1,5 +1,4 @@
 'use client';
-
 import { CompanyContext } from '@/context/company-context';
 import { useContext } from 'react';
 
