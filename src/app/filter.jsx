@@ -9,7 +9,6 @@ import {
 import { cn } from '@/lib/utils';
 import { Checkbox } from '@/components/ui/checkbox';
 import { CompanyContext } from '@/context/company-context';
-import { useIsMobile } from '@/hooks/use-mobile';
 import { Input } from '@/components/ui/input';
 import FilterIcon from '@/../public/icon-filter.svg';
 import SearchIcon from '@/../public/icon-search.svg';
@@ -17,7 +16,6 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 const Filter = () => {
-  const isMobile = useIsMobile();
   const { statuses, selectedStatuses, setSelectedStatuses } =
     useContext(CompanyContext);
 
@@ -41,7 +39,7 @@ const Filter = () => {
       <Input
         placeholder="Search company"
         type="text"
-        className="absolute inset-0 h-full rounded-xl px-16 sm:px-20 !text-lg !font-medium"
+        className="absolute inset-0 h-full rounded-xl max-sm:pl-24 px-16 sm:px-20 !text-lg !font-medium"
       />
 
       <Select
