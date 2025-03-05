@@ -1,5 +1,3 @@
-import { SidebarProvider } from '@/components/ui/sidebar';
-import { AppSidebar } from '@/components/ui/app-sidebar';
 import { AppNavbar } from '@/components/ui/app-navbar';
 import { League_Spartan } from 'next/font/google';
 import './globals.css';
@@ -14,7 +12,7 @@ export const metadata = {
   title: 'Invoice',
   description: 'Invoice App',
   icons: {
-    icon: '/logo.svg',
+    icon: '/logo.png',
   },
 };
 
@@ -23,13 +21,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${leagueSpartan.className} antialiased`}>
         <ClientLayout>
-          <SidebarProvider className=" flex-col md:flex-row font-spartan">
-            <AppSidebar className="hidden md:block" />
-            <AppNavbar className="block md:hidden" />
-            <main className="block w-full bg-color-01 relative">
-              {children}
-            </main>
-          </SidebarProvider>
+          <AppNavbar />
+          <main className="block w-full bg-color-01 relative">{children}</main>
         </ClientLayout>
       </body>
     </html>

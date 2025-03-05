@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import logo from '@/../public/logo.svg';
-import ImageAvatar from '@/../public/image-avatar.jpg';
+import BgPatternHeader from '@/../public/bg-pattern-header.svg';
+import BgPatternHeaderMobile from '@/../public/bg-pattern-header-mobile.svg';
 import { cn } from '@/lib/utils';
 
 export function AppNavbar({ className = '' }) {
@@ -8,29 +9,22 @@ export function AppNavbar({ className = '' }) {
     <nav
       className={cn(
         className,
-        'bg-sidebar h-20 rounded-none flex items-center justify-between gap-3 '
+        ' w-full relative h-20 rounded-none flex items-center justify-between gap-3 px-6 sm:px-20 lg:px-40'
       )}
     >
-      <Image src={logo} alt="Invoice App Logo" width={80} height={80} />
-
-      <div className="flex flex-row">
-        <Image
-          src="/icon-moon.svg"
-          className="mt-auto py-8 px-8 w-fit"
-          alt="Moon Icon"
-          width={20}
-          height={20}
-        />
-        <div className="flex items-center justify-center border-l border-l-sidebar-foreground px-8 py-6">
-          <Image
-            className="rounded-full self-auto min-w-8"
-            src={ImageAvatar}
-            alt="Avatar"
-            width={32}
-            height={32}
-          />
-        </div>
-      </div>
+      <Image
+        src={BgPatternHeader}
+        alt="Header Background Pattern"
+        className="hidden sm:block absolute rounded-bl-full top-0 left-0 w-full h-full object-cover -z-10"
+        priority
+      />
+      <Image
+        src={BgPatternHeaderMobile}
+        alt="Header Background Pattern"
+        className="block sm:hidden absolute top-0 left-0 w-full h-full object-cover -z-10"
+        priority
+      />
+      <Image src={logo} alt="Devjobs Logo" />
     </nav>
   );
 }
