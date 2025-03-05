@@ -23,15 +23,6 @@ const SelectTrigger = React.forwardRef(
       {...props}
     >
       {children}
-      <SelectPrimitive.Icon asChild>
-        <Image
-          src="/icon-arrow-down.svg"
-          alt="arrow down"
-          width={8}
-          height={8}
-          className="text-color-01"
-        />
-      </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
 );

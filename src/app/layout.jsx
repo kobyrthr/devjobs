@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <body className={`${leagueSpartan.className} antialiased`}>
         <ClientLayout>
           <AppNavbar />
-          <main className="block w-full bg-color-01 relative">{children}</main>
+          <main className="block w-full relative">{children}</main>
         </ClientLayout>
       </body>
     </html>

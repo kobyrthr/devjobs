@@ -9,13 +9,13 @@ export function AppNavbar({ className = '' }) {
     <nav
       className={cn(
         className,
-        ' w-full relative h-20 rounded-none flex items-center justify-between gap-3 px-6 sm:px-20 lg:px-40'
+        'w-full relative h-40 rounded-none flex items-center justify-between gap-3 px-10 sm:px-20 lg:px-40'
       )}
     >
       <Image
         src={BgPatternHeader}
         alt="Header Background Pattern"
-        className="hidden sm:block absolute rounded-bl-full top-0 left-0 w-full h-full object-cover -z-10"
+        className="hidden sm:block absolute rounded-bl-[80px] top-0 left-0 w-full h-full object-cover -z-10"
         priority
       />
       <Image

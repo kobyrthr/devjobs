@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterStatus from './filter-status';
+import FilterStatus from './filter';
 import { Button } from '@/components/ui/button';
 import { PlusCircle } from '@phosphor-icons/react';
 import { Typography } from '@/components/ui/typography';
