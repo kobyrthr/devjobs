@@ -9,13 +9,20 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
-  const { companies, selectedStatuses } = useContext(CompanyContext);
+  const { searchValue, companies, selectedStatuses } =
+    useContext(CompanyContext);
   const [itemsToShow, setItemsToShow] = useState(9);
-  const filteredData = selectedStatuses
-    ? companies.filter((company) =>
-        selectedStatuses?.includes(company?.contract)
-      )
-    : companies;
+  const filteredData = companies.filter((company) => {
+    const matchesStatus = selectedStatuses
+      ? selectedStatuses.includes(company?.contract)
+      : true;
+
+    const matchesSearch = searchValue
+      ? company.company.toLowerCase().includes(searchValue.toLowerCase())
+      : true;
+
+    return matchesStatus && matchesSearch;
+  });
 
   const currentItems = filteredData.slice(0, itemsToShow);
   const hasMore = itemsToShow < filteredData.length;
