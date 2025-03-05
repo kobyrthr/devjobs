@@ -4,11 +4,11 @@ import { CompanyContext } from '@/context/company-context';
 import DATA from '@/../public/data.json';
 
 export default function ClientLayout({ children }) {
-  const statuses = ['pending', 'paid', 'draft'];
+  const statuses = ['Full Time', 'Part Time', 'Freelance'];
   const [selectedStatuses, setSelectedStatuses] = useState([
-    'pending',
-    'paid',
-    'draft',
+    'Full Time',
+    'Part Time',
+    'Freelance',
   ]);
   const [company, setCompany] = useState(null);
   const [companies, setCompanies] = useState(DATA);
