@@ -11,6 +11,7 @@ export default function ClientLayout({ children }) {
     'Freelance',
   ]);
   const [company, setCompany] = useState(null);
+  const [searchValue, setSearchValue] = useState('');
   const [companies, setCompanies] = useState(DATA);
 
   const updateCompany = (inv) => {
@@ -33,6 +34,8 @@ export default function ClientLayout({ children }) {
         selectedStatuses,
         setSelectedStatuses,
         updateCompany,
+        searchValue,
+        setSearchValue,
       }}
     >
       {children}

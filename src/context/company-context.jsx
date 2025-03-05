@@ -2,6 +2,8 @@
 import { createContext } from 'react';
 
 export const CompanyContext = createContext({
+  searchValue: '',
+  setSearchValue: () => {},
   companies: [],
   company: null,
   setCompany: () => {},

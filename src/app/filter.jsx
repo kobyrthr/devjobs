@@ -16,8 +16,13 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 const Filter = () => {
-  const { statuses, selectedStatuses, setSelectedStatuses } =
-    useContext(CompanyContext);
+  const {
+    statuses,
+    selectedStatuses,
+    setSelectedStatuses,
+    searchValue,
+    setSearchValue,
+  } = useContext(CompanyContext);
 
   const handleStatusChange = (status) => {
     if (selectedStatuses?.includes(status)) {
@@ -40,6 +45,8 @@ const Filter = () => {
         placeholder="Search company"
         type="text"
         className="absolute inset-0 h-full rounded-xl max-sm:pl-24 px-16 sm:px-20 !text-lg !font-medium"
+        defaultValue={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
       />
 
       <Select
