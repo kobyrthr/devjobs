@@ -9,8 +9,9 @@ const leagueSpartan = League_Spartan({
 });
 
 export const metadata = {
-  title: 'Invoice',
-  description: 'Invoice App',
+  title: 'Dev Jobs',
+  description:
+    'Find your next developer role at leading tech companies. Browse through hundreds of software engineering positions, from frontend to backend, DevOps to mobile development. Your next tech career move starts here.',
   icons: {
     icon: '/logo.png',
   },
