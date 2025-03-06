@@ -7,7 +7,7 @@ export const typography = cva('text-foreground', {
     type: {
       'heading-l': 'font-bold text-[36px] leading-[33px] tracking-[-1px]',
       'heading-m': 'font-bold text-[24px] leading-[22px] tracking-[-0.75px]',
-      'heading-s': 'font-bold text-[16px] leading-[24px] tracking-[-0.25px]',
+      'heading-s': 'font-normal text-[16px] leading-[24px] tracking-[-0.25px]',
       'heading-s-variant':
         'font-bold md:text-[16px] leading-[15px] tracking-[-0.25px]',
       body: 'font-medium text-[14px] leading-[18px] tracking-[-0.1px]',

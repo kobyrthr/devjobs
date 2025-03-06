@@ -2,14 +2,16 @@ import { Button } from '@/components/ui/button';
 import { Typography } from '@/components/ui/typography';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 export const PageHeader = ({ company, className = '' }) => {
   return (
-    <div className={cn('h-36 bg-popover w-full', className)}>
-      <div className="flex items-center">
+    <div className={cn('rounded-lg bg-popover w-full', className)}>
+      <div className="flex flex-col sm:flex-row items-center w-full">
         <div
-          className={cn('relative size-[150px]')}
+          className={cn('relative min-w-[150px] size-[150px] hidden sm:block')}
           style={{ backgroundColor: company?.logoBackground }}
         >
           <Image
@@ -20,8 +22,17 @@ export const PageHeader = ({ company, className = '' }) => {
           />
         </div>
 
-        <div className="p-10 flex justify-between w-full">
-          <div className="flex flex-col gap-4">
+        <Image
+          src={`/${company?.logo}`}
+          width={50}
+          height={50}
+          style={{ backgroundColor: company?.logoBackground }}
+          alt="logo"
+          className="object-scale-down rounded-lg absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 block sm:hidden p-2"
+        />
+
+        <div className="sm:p-6 p-10 flex flex-row max-sm:flex-col  justify-between w-full">
+          <div className="flex flex-col items-center gap-4">
             <Typography type="heading-m" className="">
               {company?.company}
             </Typography>
@@ -32,8 +43,14 @@ export const PageHeader = ({ company, className = '' }) => {
               {company?.website}
             </Typography>
           </div>
-          <Button variant="default" className="" onClick={() => {}}>
-            Company Site
+          <Button
+            variant="default"
+            className="max-sm:w-fit max-sm:mx-auto max-sm:mt-6"
+            asChild
+          >
+            <Link href={company?.website ?? ''} target="_blank">
+              Visit Website
+            </Link>
           </Button>
         </div>
       </div>

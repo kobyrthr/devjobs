@@ -9,7 +9,7 @@ export function AppNavbar({ className = '' }) {
     <nav
       className={cn(
         className,
-        'w-full relative h-40 rounded-none flex items-center justify-between gap-3 px-10 sm:px-20 lg:px-40'
+        'w-full relative pb-6 h-40 rounded-none flex items-center justify-between gap-3 px-10 lg:px-40'
       )}
     >
       <Image
