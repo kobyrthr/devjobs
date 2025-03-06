@@ -7,9 +7,11 @@ import { Typography } from '@/components/ui/typography';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-  const { searchValue, companies, selectedStatuses } =
+  const router = useRouter();
+  const { searchValue, companies, setCompany, selectedStatuses } =
     useContext(CompanyContext);
   const [itemsToShow, setItemsToShow] = useState(9);
   const filteredData = companies.filter((company) => {
@@ -30,13 +32,23 @@ export default function Home() {
     setItemsToShow((prev) => prev + 6);
   };
 
+  const handleClick = (company) => {
+    setCompany(company);
+    router.push(`/jobs/${company.id}`);
+  };
+
   return (
     <div className="-mt-10 grid items-center justify-items-center size-full !pt-0 max-[376px]:p-6 p-12 px-10 lg:px-40 gap-16">
       <Filter />
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 lg:gap-x-[30px] gap-y-16">
         {currentItems.map((item) => (
           <Card key={item.id}>
-            <CardContent className="rounded-lg w-full h-[228px] cursor-pointer hover:shadow-md">
+            <CardContent
+              onClick={() => {
+                handleClick(item);
+              }}
+              className="rounded-lg w-full h-[228px] cursor-pointer hover:shadow-md"
+            >
               <div
                 className={cn('-mt-12 relative size-[50px] rounded-[15px]')}
                 style={{ backgroundColor: item.logoBackground }}

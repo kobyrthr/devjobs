@@ -5,8 +5,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CompanyContext } from '@/context/company-context';
 import { useParams, useRouter } from 'next/navigation';
+import { PageHeader } from './components/page-header';
 
-const InvoicePage = () => {
+const CompanyPage = () => {
   const { company, companies, setCompany } = useContext(CompanyContext);
   const params = useParams();
   const id = params.id;
@@ -14,20 +15,21 @@ const InvoicePage = () => {
 
   useEffect(() => {
     if (!company) {
-      const company = companies.find((item) => item.id === id);
-      setCompany(company);
+      const val = companies.find((item) => {
+        return item.id === parseInt(id);
+      });
+      if (!val) {
+        router.push('/');
+      } else {
+        setCompany(val);
+      }
     }
   }, []);
 
-  useEffect(() => {
-    if (!company) {
-      router.push('/');
-    }
-  }, [company]);
-
   return (
-    <div className=" grid bg-background items-center justify-items-center size-full max-[376px]:p-6 p-12 !pb-24 gap-16 lg:p-20">
-      <div className="size-full flex flex-col gap-4 sm:gap-16 max-w-screen-md">
+    <div className="-mt-10 grid items-center justify-items-center size-full !pt-0 max-[376px]:p-6 p-12 px-10 gap-16">
+      <PageHeader company={company} className="lg:max-w-[730px]" />
+      <div className="lg:max-w-[730px] w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 lg:gap-x-[30px] gap-y-16">
         <Link href="/" className="flex items-center">
           <Image
             src="/icon-arrow-left.svg"
@@ -46,4 +48,4 @@ const InvoicePage = () => {
   );
 };
 
-export default InvoicePage;
+export default CompanyPage;

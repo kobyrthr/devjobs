@@ -5,12 +5,12 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-[15px] font-bold transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-[15px] font-bold transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
         primary: 'bg-color-01 text-white hover:bg-color-02',
-        default: 'bg-color-07-base text-color-07 hover:bg-color-05',
+        default: 'bg-color-05 text-color-01 hover:bg-color-05/50',
         secondary: 'bg-color-06-base text-color-06 hover:bg-color-06-hover',
         destructive: 'bg-color-09 text-white hover:bg-color-10',
         link: 'text-color-01 underline-offset-4 hover:underline',
