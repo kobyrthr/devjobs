@@ -3,29 +3,27 @@ import { Typography } from '@/components/ui/typography';
 import { useContext, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import InvoiceHeader from './components/invoice-header';
-import InvoiceBody from './components/invoice-body';
 import { CompanyContext } from '@/context/company-context';
 import { useParams, useRouter } from 'next/navigation';
 
 const InvoicePage = () => {
-  const { invoice, setInvoice, invoices } = useContext(CompanyContext);
+  const { company, companies, setCompany } = useContext(CompanyContext);
   const params = useParams();
   const id = params.id;
   const router = useRouter();
 
   useEffect(() => {
-    if (!invoice) {
-      const invoice = invoices.find((item) => item.id === id);
-      setInvoice(invoice);
+    if (!company) {
+      const company = companies.find((item) => item.id === id);
+      setCompany(company);
     }
   }, []);
 
   useEffect(() => {
-    if (!invoice) {
+    if (!company) {
       router.push('/');
     }
-  }, [invoice]);
+  }, [company]);
 
   return (
     <div className=" grid bg-background items-center justify-items-center size-full max-[376px]:p-6 p-12 !pb-24 gap-16 lg:p-20">
@@ -43,8 +41,6 @@ const InvoicePage = () => {
             Go Back
           </Typography>
         </Link>
-        <InvoiceHeader invoice={invoice} />
-        <InvoiceBody invoice={invoice} />
       </div>
     </div>
   );
