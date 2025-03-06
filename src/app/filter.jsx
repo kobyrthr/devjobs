@@ -38,7 +38,7 @@ const Filter = () => {
 
   return (
     <div className=" w-full flex items-center relative h-20 !bg-transparent rounded-xl overflow-hidden px-4">
-      <Button className="rounded-sm hover:bg-transparent z-10">
+      <Button className="rounded-sm bg-transparent hover:bg-transparent z-10">
         <Image src={SearchIcon} alt="filter" />
       </Button>
       <Input
