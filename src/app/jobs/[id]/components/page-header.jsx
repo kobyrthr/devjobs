@@ -31,7 +31,7 @@ export const PageHeader = ({ company, className = '' }) => {
           className="object-scale-down rounded-lg absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 block sm:hidden p-2"
         />
 
-        <div className="sm:p-6 p-10 flex flex-row max-sm:flex-col  justify-between w-full">
+        <div className="p-6 sm:p-12 flex flex-row max-sm:flex-col  justify-between w-full">
           <div className="flex flex-col items-center gap-4">
             <Typography type="heading-m" className="">
               {company?.company}

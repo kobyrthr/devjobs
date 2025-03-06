@@ -3,6 +3,7 @@ import logo from '@/../public/logo.svg';
 import BgPatternHeader from '@/../public/bg-pattern-header.svg';
 import BgPatternHeaderMobile from '@/../public/bg-pattern-header-mobile.svg';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 export function AppNavbar({ className = '' }) {
   return (
@@ -24,7 +25,9 @@ export function AppNavbar({ className = '' }) {
         className="block sm:hidden absolute top-0 left-0 w-full h-full object-cover -z-10"
         priority
       />
-      <Image src={logo} alt="Devjobs Logo" />
+      <Link href="/">
+        <Image src={logo} alt="Devjobs Logo" />
+      </Link>
     </nav>
   );
 }
