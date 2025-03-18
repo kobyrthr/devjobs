@@ -1,11 +1,23 @@
+'use client';
 import Image from 'next/image';
 import logo from '@/../public/logo.svg';
 import BgPatternHeader from '@/../public/bg-pattern-header.svg';
 import BgPatternHeaderMobile from '@/../public/bg-pattern-header-mobile.svg';
+import IconSun from '@/../public/icon-sun.svg';
+import IconMoon from '@/../public/icon-moon.svg';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { Switch } from '@/components/ui/switch';
+import { useTheme } from 'next-themes';
 
 export function AppNavbar({ className = '' }) {
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  };
+
   return (
     <nav
       className={cn(
@@ -28,6 +40,20 @@ export function AppNavbar({ className = '' }) {
       <Link href="/">
         <Image src={logo} alt="Devjobs Logo" />
       </Link>
+
+      <div className="flex gap-4 items-center relative">
+        <label htmlFor="theme-switch" className="">
+          <Image src={IconSun} alt="Icon Sun" />
+        </label>
+        <Switch
+          id="theme-switch"
+          checked={theme == 'dark'}
+          onCheckedChange={toggleTheme}
+        />
+        <label htmlFor="theme-switch" className="">
+          <Image src={IconMoon} alt="Icon Moon" />
+        </label>
+      </div>
     </nav>
   );
 }
