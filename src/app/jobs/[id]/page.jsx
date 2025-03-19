@@ -91,7 +91,10 @@ const CompanyPage = () => {
 
               <ul className="space-y-1 mt-6">
                 {company?.requirements.items.map((item, index) => (
-                  <li key={index} className="list-disc ml-2 pl-8">
+                  <li
+                    key={index}
+                    className="list-disc marker:text-color-01 ml-2 pl-8"
+                  >
                     <Typography type="heading-s" className=" text-gray-500">
                       {item}
                     </Typography>
